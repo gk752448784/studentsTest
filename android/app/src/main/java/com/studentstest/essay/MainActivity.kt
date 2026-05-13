@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,6 +37,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -74,7 +76,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme(
-                colorScheme = MaterialTheme.colorScheme.copy(
+                colorScheme = lightColorScheme(
                     primary = Color(0xFF2563EB),
                     secondary = Color(0xFF0F766E),
                     surface = Color(0xFFF8FAFC),
@@ -687,7 +689,7 @@ private fun ErrorBanner(message: String?) {
 private fun LoadingRow(isLoading: Boolean) {
     if (!isLoading) return
     Row(verticalAlignment = Alignment.CenterVertically) {
-        CircularProgressIndicator(modifier = Modifier.width(24.dp).height(24.dp), strokeWidth = 2.dp)
+        CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
         Spacer(modifier = Modifier.width(8.dp))
         Text("正在处理...")
     }
